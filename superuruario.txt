@@ -1,0 +1,4 @@
+python manage.py createsuperuser
+suporte
+ccsoftwarern@gmail.com
+123master
