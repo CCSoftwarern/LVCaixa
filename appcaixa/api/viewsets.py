@@ -29,6 +29,16 @@ class tp_movimentoViewSet(viewsets.ModelViewSet):
     queryset = models.tipo_movimento.objects.all()
 
 
+class formas_pgtosViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.formas_pgtoSerializer
+    queryset = models.forma_pgtos.objects.all()
+
+class bancosViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.bancos_Serializer
+    queryset = models.bancos.objects.all()
+
+
+
 # filtros de pesquisa de movimento
 class MetricFilter(filters.FilterSet):
     dt_lancamento= filters.DateFromToRangeFilter()

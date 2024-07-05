@@ -27,6 +27,16 @@ class folhapgtoSerializer(serializers.ModelSerializer):
         model = models.folhapgto
         fields = '__all__'
 
+class formas_pgtoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= models.forma_pgtos
+        fields = '__all__'
+
+class bancos_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model= models.bancos
+        fields = '__all__'
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
