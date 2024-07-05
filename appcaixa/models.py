@@ -88,6 +88,8 @@ class folhapgto(models.Model):
     cod_pe = models.CharField(max_length=50, unique=True)
     valor_b = models.DecimalField(max_digits=15, decimal_places=2, default=0)
     dt_atualizacao = models.DateTimeField(auto_now=True)
+    id_instrutor = models.IntegerField(default=0)
+    nm_instrutor = models.CharField(max_length=150, null=True)
 
 
 class forma_pgtos(models.Model):
