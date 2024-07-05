@@ -58,10 +58,11 @@ class movimento(models.Model):
     vr_movimento = models.DecimalField(max_digits=15, decimal_places=2)
     id_usuario = models.IntegerField(default=0, null=True)
     nm_usuario = models.CharField(max_length=150, null=True)
-    vr_entrada = models.DecimalField(max_digits=15, decimal_places=2)
-    tp_pgto_entrada = models.IntegerField(default=0)
-    vr_parcelado = models.DecimalField(max_digits=15, decimal_places=2)
-    tp_pgto_parcelado = models.IntegerField(default=0)
+    vr_entrada = models.DecimalField(max_digits=15, decimal_places=2, default=0)
+    vr_parcelado = models.DecimalField(max_digits=15, decimal_places=2, default=0)
+    cod_forma_entrada= models.IntegerField(default=0, null=True)
+    cod_forma_parcelado= models.IntegerField(default=0, null=True)
+
 
 
 class folhapgto(models.Model):
