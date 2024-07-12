@@ -19,8 +19,8 @@ class ClientesViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ClientesSerializer
     queryset = models.clientes.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['id_cliente','nm_cliente','cpf_cnpj','telefone','email']
-    search_fields = ['id_cliente','nm_cliente','cpf_cnpj','telefone','email']
+    filterset_fields = ['id_cliente','nm_cliente','cpf_cnpj','telefone','email','tipo_cliente']
+    search_fields = ['id_cliente','nm_cliente','cpf_cnpj','telefone','email','tipo_cliente']
 
     
 
@@ -61,11 +61,11 @@ class MovimentoViewSet(viewsets.ModelViewSet):
 # filtros folha pgto
 class MetricFilterFolha(filters.FilterSet):
     dt_lancamento = filters.DateFromToRangeFilter()
-    search_fields =['id_folha','id_cliente', 'nm_cliente','status','forma_pgto','dt_lancamento']
+    search_fields =['id_folha','id_cliente', 'nm_cliente','status','forma_pgto','dt_lancamento','id_movimento']
 
     class Meta:
         model = models.folhapgto
-        fields =['id_folha','id_cliente', 'nm_cliente','status','forma_pgto','dt_lancamento']
+        fields =['id_folha','id_cliente', 'nm_cliente','status','forma_pgto','dt_lancamento','id_movimento']
 
 
 class FolhaViewSet(viewsets.ModelViewSet):

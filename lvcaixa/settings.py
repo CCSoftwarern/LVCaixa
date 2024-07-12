@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_authtoken',
     'appcaixa',
+    'dbbackup',  # django-dbbackup
 ]
 
 MIDDLEWARE = [
@@ -111,11 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
-
-TIME_ZONE = 'America/Fortaleza'
-
 USE_I18N = True
 
+TIME_ZONE = 'America/Sao_Paulo'
 USE_TZ = True
 
 
@@ -175,6 +174,9 @@ REST_FRAMEWORK = {
     ]
 
 }
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage' #o que salvar
+DBBACKUP_STORAGE_OPTIONS = {'location': 'D:/my/backup/dir/'} # onde salvar
 
 
 

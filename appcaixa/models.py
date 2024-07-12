@@ -42,7 +42,7 @@ class clientes(models.Model):
     bairro = models.CharField(max_length=100, null=True, blank=True)
     municipio = models.CharField(max_length=100, null=True, blank=True)
     uf = models.CharField(max_length=2, null=True, blank=True)
-    tipo_cliente = models.IntegerField(default=0) # 0= cliente comum, 1=instrutor
+    tipo_cliente = models.IntegerField(default=0, null=False, blank=False) # 0= cliente comum, 1=instrutor
     id_usuario = models.IntegerField(default=0, null=True)
     nm_usuario = models.CharField(max_length=150, null=True)
     dt_atualizacao = models.DateTimeField(auto_now=True)
@@ -85,11 +85,14 @@ class folhapgto(models.Model):
     data_pgto = models.DateField(null=True)
     id_usuario = models.IntegerField(default=0, null=True)
     nm_usuario = models.CharField(max_length=150, null=True)
-    cod_pe = models.CharField(max_length=50, unique=True)
     valor_b = models.DecimalField(max_digits=15, decimal_places=2, default=0)
     dt_atualizacao = models.DateTimeField(auto_now=True)
     id_instrutor = models.IntegerField(default=0)
     nm_instrutor = models.CharField(max_length=150, null=True)
+    id_movimento = models.IntegerField(default=0, null=False)
+    id_forma_pgtos = models.IntegerField(default=0,null=False)
+    codigo_pe = models.CharField(max_length=50,default=0, null=True)
+
 
 
 class forma_pgtos(models.Model):
