@@ -92,6 +92,8 @@ class folhapgto(models.Model):
     id_movimento = models.IntegerField(default=0, null=False)
     id_forma_pgtos = models.IntegerField(default=0,null=False)
     codigo_pe = models.CharField(max_length=50,default=0, null=True)
+    nm_categoria = models.CharField(default=0, max_length=50, null=False)
+
 
 
 
