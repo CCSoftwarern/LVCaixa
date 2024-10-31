@@ -42,11 +42,11 @@ class bancosViewSet(viewsets.ModelViewSet):
 # filtros de pesquisa de movimento
 class MetricFilter(filters.FilterSet):
     dt_lancamento= filters.DateFromToRangeFilter()
-    search_fields =['id_movimento','dt_lancamento', 'dt_caixa','id_cliente','nm_cliente','descricao','nm_tp_movimento','status']
+    search_fields =['id_movimento','dt_lancamento', 'dt_caixa','id_cliente','nm_cliente','descricao','nm_tp_movimento','status','id_habilitacoes','tem_na_folha']
 
     class Meta:
         model = models.movimento
-        fields =['id_movimento','dt_lancamento', 'dt_caixa','id_cliente','nm_cliente','descricao','nm_tp_movimento','status']
+        fields =['id_movimento','dt_lancamento', 'dt_caixa','id_cliente','nm_cliente','descricao','nm_tp_movimento','status','id_habilitacoes','tem_na_folha']
 
 
 class MovimentoViewSet(viewsets.ModelViewSet):
@@ -82,5 +82,21 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['username','is_staff']
 
+#filtro Habilitações
+class MetricFilterHabiitacoes(filters.FilterSet):
+    dt_cadastro= filters.DateFromToRangeFilter()
+    search_fields =['id','id_cliente','cod_pe','dt_cadastro','status']
 
+    class Meta:
+        model = models.habilitacoes
+        fields =['id','id_cliente','cod_pe','dt_cadastro','status']
+
+
+class HabilitacoesViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.HabilitacoesSerializer
+    queryset = models.habilitacoes.objects.all()
+   # authentication_classes=[TokenAuthentication]
+   # permission_classes=[IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = MetricFilterHabiitacoes
 

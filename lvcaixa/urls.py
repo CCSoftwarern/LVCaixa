@@ -39,6 +39,7 @@ router.register(r'movimento', appcaixaviewsets.MovimentoViewSet)
 router.register(r'folha', appcaixaviewsets.FolhaViewSet)
 router.register(r'formas_pgtos', appcaixaviewsets.formas_pgtosViewSet)
 router.register(r'bancos', appcaixaviewsets.bancosViewSet)
+router.register(r'habilitacoes', appcaixaviewsets.HabilitacoesViewSet)
 
 
 

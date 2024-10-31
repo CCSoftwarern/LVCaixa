@@ -65,6 +65,34 @@ class movimento(models.Model):
     cod_forma_entrada= models.IntegerField(default=0, null=True)
     cod_forma_parcelado= models.IntegerField(default=0, null=True)
     dt_atualizacao = models.DateTimeField(auto_now=True)
+    #incluido apartir daqui
+    ACC = models.IntegerField(default=0, null= True) # 0=não pretedido, 1=falta pgto, 2= pronto para pgto, 3=pago
+    Categoria_A = models.IntegerField(default=0, null= True) # 0=não pretedido, 1=falta pgto, 2= pronto para pgto, 3=pago
+    Categoria_B = models.IntegerField(default=0, null= True) # 0=não pretedido, 1=falta pgto, 2= pronto para pgto, 3=pago
+    Categoria_C = models.IntegerField(default=0, null= True) # 0=não pretedido, 1=falta pgto, 2= pronto para pgto, 3=pago
+    Categoria_D = models.IntegerField(default=0, null= True) # 0=não pretedido, 1=falta pgto, 2= pronto para pgto, 3=pago
+    valor = models.DecimalField(max_digits=15, decimal_places=2, default=0)
+    status =  models.IntegerField(default=0, null= True) # 0=aberto, 1=liquidado, 2=Cancelado
+    forma_pgto = models.CharField(max_length=30, null=True, blank=True)
+    data_pgto = models.DateField(null=True)
+    idusuario_folhapgto = models.IntegerField(default=0, null=True)
+    nm_usuario_folhapgto = models.CharField(max_length=150, null=True)
+    dt_atualizacao_folhapgto = models.DateTimeField(auto_now=True)
+    idinstrutor_catA = models.IntegerField(default=0) #instrutor
+    nm_instrutor_catA = models.CharField(max_length=150, null=True, default=0)
+    idinstrutor_catB = models.IntegerField(default=0)
+    nm_instrutor_catB = models.CharField(max_length=150, null=True, default=0)
+    idmovimento = models.IntegerField(default=0, null=False)
+    idforma_pgtos = models.IntegerField(default=0,null=False)# forma de pgto
+    codigo_pe = models.CharField(max_length=50,default=0, null=True)
+    nm_categoria = models.CharField(default=0, max_length=50, null=False)
+    valor_b = models.DecimalField(max_digits=15, decimal_places=2, default=0)
+    status_pgto_a =  models.IntegerField(default=0, null= True) # 0=aberto, 1=liquidado, 2=Cancelado
+    status_pgto_b=  models.IntegerField(default=0, null= True) # 0=aberto, 1=liquidado, 2=Cancelado
+    id_habilitacoes = models.IntegerField(default=0, null=False, blank=False)
+    dt_pgto = models.DateField(auto_now_add=True, null=True)
+    hora_pgto = models.TimeField(auto_now_add=True, null=True)
+    tem_na_folha = models.BooleanField(default=False)
 
 
 
@@ -107,6 +135,16 @@ class bancos(models.Model):
     id_banco = models.AutoField(primary_key=True, editable=False)
     descricao = models.CharField(max_length=150, null=True)
     dt_atualizacao = models.DateTimeField(auto_now=True)
+
+class habilitacoes(models.Model):
+    id = models.AutoField(primary_key=True, editable=False)
+    id_cliente = models.IntegerField(default=0, null=False, blank=False)
+    cod_pe = models.CharField(max_length=50,default=0, null=True)
+    valor = models.DecimalField(max_digits=15, decimal_places=2)
+    dt_cadastro = models.DateField(auto_now_add=True)
+    hora_cadastro = models.TimeField(auto_now_add=True)
+    status = models.IntegerField(default=0) #0 = aberto, 1= Concluido, 2 = cancelado
+    id_usuario = models.IntegerField(default=0)
 
 
 

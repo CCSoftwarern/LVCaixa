@@ -42,4 +42,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
+class HabilitacoesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.habilitacoes
+        fields = '__all__'
       
